@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { codeBackground } from "../assets/images";
+import { codeBackground, profile } from "../assets/images";
 import { BsChevronCompactDown } from "react-icons/bs";
+import { FaReact, FaHtml5, FaCss3 } from "react-icons/fa";
+import { ImGit } from "react-icons/im";
 import { keyframes } from "styled-components";
 
 export const Home = (props) => {
@@ -9,17 +11,62 @@ export const Home = (props) => {
       <ImageBackground>
         <div className="hello">
           <div className="title">
-            <span>
+            <span className="zoom" style={{ cursor: "default" }}>
               Hello, I'm Juan and I'm a <br />
               Javascript software developer
             </span>
           </div>
-          <div className="seemore">
-            <span>see more here</span>
+          <a className="seemore" href="#about">
+            <span>about me</span>
             <BsChevronCompactDown color="#fff" size={50} />
-          </div>
+          </a>
         </div>
       </ImageBackground>
+      <About id="about">
+        <div className="aboutme">
+          <div className="pic">
+            <img src={profile}></img>
+            <span>I'm a Node.js fullstack developer</span>
+          </div>
+          <div className="skills">
+            <div className="skill">
+              <FaReact size={50} color="#61dafb" className="icon" />
+              <div>
+                <span>React Native</span>
+                <progress value={4} max={5} />
+              </div>
+            </div>
+            <div className="skill">
+              <FaReact size={50} color="#05a5d1" className="icon" />
+              <div>
+                <span>React.js</span>
+                <progress value={4} max={5} />
+              </div>
+            </div>
+            <div className="skill">
+              <FaHtml5 size={50} color="#f16529" className="icon" />
+              <div>
+                <span>React Native</span>
+                <progress value={4} max={5} />
+              </div>
+            </div>
+            <div className="skill">
+              <FaCss3 size={50} color="#0285a1" className="icon" />
+              <div>
+                <span>Css</span>
+                <progress value={3} max={5} />
+              </div>
+            </div>
+            <div className="skill">
+              <ImGit size={50} color="#f05033" className="icon" />
+              <div>
+                <span>Git / GitHub</span>
+                <progress value={4} max={5} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </About>
     </Container>
   );
 };
@@ -33,18 +80,10 @@ const ease = keyframes`
   }
 `;
 
-const pulse = keyframes`
-  from {
-    font-size: 6rem;
-  }
-  to {
-    font-size: 6.2rem;
-  }
-`;
-
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
+  behavior: smooth;
 `;
 
 const ImageBackground = styled.div`
@@ -71,12 +110,12 @@ const ImageBackground = styled.div`
       align-items: center;
       justify-content: center;
 
-      span {
+      .zoom {
         color: #fff;
         font-weight: 700;
         font-size: 6rem;
         text-align: center;
-        transition: all 500ms;
+        transition: all 300ms;
         :hover {
           font-size: 6.2rem;
         }
@@ -90,6 +129,8 @@ const ImageBackground = styled.div`
       justify-content: center;
       margin-bottom: 20px;
 
+      cursor: pointer;
+
       span {
         background-color: #00000070;
         padding: 10px 30px;
@@ -98,10 +139,77 @@ const ImageBackground = styled.div`
         font-weight: 400;
         font-size: 2rem;
         text-align: center;
+        font-weight: 700;
       }
 
       svg {
         animation: ${ease} 2s ease-in-out infinite;
+      }
+    }
+  }
+`;
+
+const About = styled.section`
+  background-color: #222230;
+
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .aboutme {
+    background-color: #fff;
+
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 30px;
+    margin: 10px;
+    .pic {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: 120px;
+      }
+
+      span {
+        margin-left: 30px;
+        font-size: 2.5rem;
+      }
+    }
+
+    .skills {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 20px;
+      font-size: 2rem;
+
+      .skill {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          margin-left: 40px;
+
+          progress {
+            margin-top: 5px;
+          }
+        }
       }
     }
   }
