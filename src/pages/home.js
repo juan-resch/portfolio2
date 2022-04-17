@@ -176,9 +176,9 @@ const About = styled.section`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    max-width: 80%;
+    padding: 30px 20px;
 
-    padding: 30px;
-    margin: 10px;
     .pic {
       display: flex;
       flex-direction: row;
@@ -191,8 +191,8 @@ const About = styled.section`
         border-radius: 120px;
 
         @media (max-width: 768px) {
-          width: 90px;
-          height: 90px;
+          width: 80px;
+          height: 80px;
         }
       }
 
@@ -200,7 +200,7 @@ const About = styled.section`
         margin-left: 30px;
         font-size: 2.5rem;
         @media (max-width: 768px) {
-          font-size: 2rem;
+          font-size: 1.8rem;
         }
       }
     }
@@ -214,7 +214,7 @@ const About = styled.section`
 
       .skill {
         width: 100%;
-        padding: 20px;
+        padding: 10px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -222,7 +222,7 @@ const About = styled.section`
         div {
           display: flex;
           flex-direction: column;
-          margin-left: 40px;
+          margin-left: 30px;
 
           progress {
             margin-top: 5px;
@@ -230,7 +230,7 @@ const About = styled.section`
         }
       }
       @media (max-width: 768px) {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
       }
     }
   }
