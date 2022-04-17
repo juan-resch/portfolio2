@@ -116,8 +116,18 @@ const ImageBackground = styled.div`
         font-size: 6rem;
         text-align: center;
         transition: all 300ms;
+
+        padding: 0 10px;
+
         :hover {
           font-size: 6.2rem;
+        }
+
+        @media (max-width: 768px) {
+          font-size: 4.5rem;
+          :hover {
+            font-size: 5rem;
+          }
         }
       }
     }
@@ -179,11 +189,19 @@ const About = styled.section`
         width: 120px;
         height: 120px;
         border-radius: 120px;
+
+        @media (max-width: 768px) {
+          width: 90px;
+          height: 90px;
+        }
       }
 
       span {
         margin-left: 30px;
         font-size: 2.5rem;
+        @media (max-width: 768px) {
+          font-size: 2rem;
+        }
       }
     }
 
@@ -210,6 +228,9 @@ const About = styled.section`
             margin-top: 5px;
           }
         }
+      }
+      @media (max-width: 768px) {
+        font-size: 1.8rem;
       }
     }
   }
