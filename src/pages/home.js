@@ -2,7 +2,12 @@ import styled from "styled-components";
 import { codeBackground, profile } from "../assets/images";
 import { BsChevronCompactDown } from "react-icons/bs";
 import { FaReact, FaHtml5, FaCss3 } from "react-icons/fa";
-import { ImGit } from "react-icons/im";
+import {
+  SiTailwindcss,
+  SiExpress,
+  SiPostgresql,
+  SiPrisma,
+} from "react-icons/si";
 import { keyframes } from "styled-components";
 
 export const Home = (props) => {
@@ -25,43 +30,63 @@ export const Home = (props) => {
       <About id="about">
         <div className="aboutme">
           <div className="pic">
-            <img src={profile}></img>
-            <span>I'm a Node.js fullstack developer</span>
+            <span>Some of my skills 👨‍💻</span>
           </div>
-          <div className="skills">
-            <div className="skill">
-              <FaReact size={50} color="#61dafb" className="icon" />
-              <div>
-                <span>React Native</span>
-                <progress value={4} max={5} />
+          <div className="skillsWrapper">
+            <div className="skills">
+              <span className="type">Front-End</span>
+              <div className="skill">
+                <FaReact size={50} color="#05a5d1" className="icon" />
+                <div>
+                  <span>React.js / React Native</span>
+                  <progress value={4} max={5} />
+                </div>
+              </div>
+
+              <div className="skill">
+                <FaHtml5 size={50} color="#f16529" className="icon" />
+                <div>
+                  <span>Html</span>
+                  <progress value={4} max={5} />
+                </div>
+              </div>
+              <div className="skill">
+                <FaCss3 size={50} color="#2449d8" className="icon" />
+                <div>
+                  <span>Css</span>
+                  <progress value={3.8} max={5} />
+                </div>
+              </div>
+              <div className="skill">
+                <SiTailwindcss size={50} color="#07adca" className="icon" />
+                <div>
+                  <span>TailWind</span>
+                  <progress value={3.8} max={5} />
+                </div>
               </div>
             </div>
-            <div className="skill">
-              <FaReact size={50} color="#05a5d1" className="icon" />
-              <div>
-                <span>React.js</span>
-                <progress value={4} max={5} />
+            <div className="skills">
+              <span className="type">Back-End</span>
+              <div className="skill">
+                <SiExpress size={50} color="#222" className="icon" />
+                <div>
+                  <span>Express.js</span>
+                  <progress value={4.5} max={5} />
+                </div>
               </div>
-            </div>
-            <div className="skill">
-              <FaHtml5 size={50} color="#f16529" className="icon" />
-              <div>
-                <span>React Native</span>
-                <progress value={4} max={5} />
+              <div className="skill">
+                <SiPostgresql size={50} color="#336791" className="icon" />
+                <div>
+                  <span>PostgreSQL</span>
+                  <progress value={3.7} max={5} />
+                </div>
               </div>
-            </div>
-            <div className="skill">
-              <FaCss3 size={50} color="#0285a1" className="icon" />
-              <div>
-                <span>Css</span>
-                <progress value={3} max={5} />
-              </div>
-            </div>
-            <div className="skill">
-              <ImGit size={50} color="#f05033" className="icon" />
-              <div>
-                <span>Git / GitHub</span>
-                <progress value={4} max={5} />
+              <div className="skill">
+                <SiPrisma size={50} color="#222" className="icon" />
+                <div>
+                  <span>Prisma ORM</span>
+                  <progress value={4.5} max={5} />
+                </div>
               </div>
             </div>
           </div>
@@ -83,7 +108,6 @@ const ease = keyframes`
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  behavior: smooth;
 `;
 
 const ImageBackground = styled.div`
@@ -119,14 +143,12 @@ const ImageBackground = styled.div`
 
         padding: 0 10px;
 
-        :hover {
-          font-size: 6.2rem;
-        }
-
         @media (max-width: 768px) {
           font-size: 4.5rem;
+        }
+        @media (min-width: 768px) {
           :hover {
-            font-size: 5rem;
+            font-size: 6.2rem;
           }
         }
       }
@@ -138,8 +160,12 @@ const ImageBackground = styled.div`
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-
       cursor: pointer;
+      transition: 300ms;
+
+      :hover {
+        transform: translateY(-10px);
+      }
 
       span {
         background-color: #00000070;
@@ -155,6 +181,9 @@ const ImageBackground = styled.div`
       svg {
         animation: ${ease} 2s ease-in-out infinite;
       }
+      @media (max-width: 768px) {
+        margin-bottom: 60px;
+      }
     }
   }
 `;
@@ -163,10 +192,18 @@ const About = styled.section`
   background-color: #222230;
 
   width: 100vw;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 40px 0;
+
+  .skillsWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
   .aboutme {
     background-color: #fff;
@@ -185,35 +222,28 @@ const About = styled.section`
       align-items: center;
       justify-content: space-between;
 
-      img {
-        width: 120px;
-        height: 120px;
-        border-radius: 120px;
-
-        @media (max-width: 768px) {
-          width: 80px;
-          height: 80px;
-        }
-      }
-
       span {
-        margin-left: 30px;
-        font-size: 2.5rem;
+        margin: 10px 0;
+        font-size: 3rem;
         @media (max-width: 768px) {
-          font-size: 1.8rem;
+          font-size: 2.5rem;
         }
       }
     }
 
     .skills {
-      display: flex;
       flex-direction: column;
-      width: 100%;
-      margin-top: 20px;
+      margin: 30px;
       font-size: 2rem;
+      max-width: 50%;
+
+      .type {
+        margin-left: 10px;
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
 
       .skill {
-        width: 100%;
         padding: 10px;
         display: flex;
         flex-direction: row;
@@ -231,6 +261,9 @@ const About = styled.section`
       }
       @media (max-width: 768px) {
         font-size: 1.5rem;
+        margin: 0px;
+        margin-top: 20px;
+        max-width: 100%;
       }
     }
   }
