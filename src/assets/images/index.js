@@ -1,4 +1,4 @@
 const codeBackground = require("./code.jpg");
-const profile = require("./profile.jpg");
+const logoRaion = require("./raion.png");
 
-export { codeBackground, profile };
+export { codeBackground, logoRaion };

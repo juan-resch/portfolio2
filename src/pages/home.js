@@ -1,12 +1,17 @@
 import styled from "styled-components";
-import { codeBackground, profile } from "../assets/images";
+import { codeBackground, logoRaion } from "../assets/images";
 import { BsChevronCompactDown } from "react-icons/bs";
 import { FaReact, FaHtml5, FaCss3 } from "react-icons/fa";
+import { CgWebsite } from "react-icons/cg";
 import {
   SiTailwindcss,
   SiExpress,
   SiPostgresql,
   SiPrisma,
+  SiNextdotjs,
+  SiSequelize,
+  SiInstagram,
+  SiLinkedin,
 } from "react-icons/si";
 import { keyframes } from "styled-components";
 
@@ -36,17 +41,23 @@ export const Home = (props) => {
             <div className="skills">
               <span className="type">Front-End</span>
               <div className="skill">
+                <SiNextdotjs size={50} color="#222" className="icon" />
+                <div>
+                  <span>Next.js</span>
+                  <progress value={3.7} max={5} />
+                </div>
+              </div>
+              <div className="skill">
                 <FaReact size={50} color="#05a5d1" className="icon" />
                 <div>
                   <span>React.js / React Native</span>
                   <progress value={4} max={5} />
                 </div>
               </div>
-
               <div className="skill">
-                <FaHtml5 size={50} color="#f16529" className="icon" />
+                <SiTailwindcss size={50} color="#07adca" className="icon" />
                 <div>
-                  <span>Html</span>
+                  <span>TailWind</span>
                   <progress value={4} max={5} />
                 </div>
               </div>
@@ -54,13 +65,13 @@ export const Home = (props) => {
                 <FaCss3 size={50} color="#2449d8" className="icon" />
                 <div>
                   <span>Css</span>
-                  <progress value={3.8} max={5} />
+                  <progress value={3.5} max={5} />
                 </div>
               </div>
               <div className="skill">
-                <SiTailwindcss size={50} color="#07adca" className="icon" />
+                <FaHtml5 size={50} color="#f16529" className="icon" />
                 <div>
-                  <span>TailWind</span>
+                  <span>Html</span>
                   <progress value={3.8} max={5} />
                 </div>
               </div>
@@ -71,27 +82,56 @@ export const Home = (props) => {
                 <SiExpress size={50} color="#222" className="icon" />
                 <div>
                   <span>Express.js</span>
-                  <progress value={4.5} max={5} />
-                </div>
-              </div>
-              <div className="skill">
-                <SiPostgresql size={50} color="#336791" className="icon" />
-                <div>
-                  <span>PostgreSQL</span>
-                  <progress value={3.7} max={5} />
+                  <progress value={4.2} max={5} />
                 </div>
               </div>
               <div className="skill">
                 <SiPrisma size={50} color="#222" className="icon" />
                 <div>
                   <span>Prisma ORM</span>
-                  <progress value={4.5} max={5} />
+                  <progress value={4.2} max={5} />
+                </div>
+              </div>
+              <div className="skill">
+                <SiSequelize size={50} color="#2c3e62" className="icon" />
+                <div>
+                  <span>Sequelize ORM</span>
+                  <progress value={3.8} max={5} />
+                </div>
+              </div>
+              <div className="skill">
+                <SiPostgresql size={50} color="#336791" className="icon" />
+                <div>
+                  <span>PostgreSQL</span>
+                  <progress value={3.3} max={5} />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </About>
+      <Raion>
+        <div className="wrapper">
+          <h1>Currently working at Raion software house</h1>
+          <div className="social">
+            <img src={logoRaion} />
+            <div className="socialMediaWrapper">
+              <a>
+                <SiInstagram color="#222" size={50} />
+                Raion IG
+              </a>
+              <a>
+                <SiLinkedin color="#222" size={50} />
+                Linkedin
+              </a>
+              <a>
+                <CgWebsite color="#222" size={50} />
+                Raion Site
+              </a>
+            </div>
+          </div>
+        </div>
+      </Raion>
     </Container>
   );
 };
@@ -189,7 +229,7 @@ const ImageBackground = styled.div`
 `;
 
 const About = styled.section`
-  background-color: #222230;
+  background-color: #111;
 
   width: 100vw;
   min-height: 70vh;
@@ -206,8 +246,12 @@ const About = styled.section`
   }
 
   .aboutme {
-    background-color: #fff;
-
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      175deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(180, 180, 180, 1) 100%
+    );
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -248,6 +292,7 @@ const About = styled.section`
         display: flex;
         flex-direction: row;
         align-items: center;
+        margin-top: 10px;
 
         div {
           display: flex;
@@ -264,6 +309,107 @@ const About = styled.section`
         margin: 0px;
         margin-top: 20px;
         max-width: 100%;
+      }
+    }
+  }
+`;
+
+const Raion = styled.section`
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(242, 242, 242, 1) 28%,
+    rgba(180, 180, 180, 1) 100%
+  );
+
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .wrapper {
+    background-color: #fff;
+    box-shadow: #22222270 1px 1px 20px;
+    border-radius: 6px;
+    padding: 40px;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      font-size: 5rem;
+      text-align: center;
+      max-width: 70%;
+    }
+
+    .social {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+      flex-wrap: wrap;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: 400ms;
+
+        :hover {
+          transform: translateY(-8px);
+        }
+
+        svg {
+          margin-bottom: 6px;
+        }
+      }
+
+      img {
+        max-width: 300px;
+        height: auto;
+        padding: 20px;
+        background-color: #222;
+        border-radius: 6px;
+        margin: 0 20px 20px 0;
+      }
+
+      .socialMediaWrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 340px;
+        align-items: center;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .wrapper {
+      max-width: 80%;
+      align-items: center;
+      padding: 20px;
+
+      h1 {
+        font-size: 3.5rem;
+        max-width: 90%;
+      }
+
+      .social {
+        a {
+          font-size: 1.5rem;
+        }
+        img {
+          max-width: 200px;
+        }
+        .socialMediaWrapper {
+          max-width: 240px;
+        }
       }
     }
   }
