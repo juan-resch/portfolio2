@@ -14,6 +14,7 @@ import {
   SiLinkedin,
 } from "react-icons/si";
 import { keyframes } from "styled-components";
+import Bottom from "../components/bottom";
 
 export const Home = (props) => {
   return (
@@ -124,14 +125,17 @@ export const Home = (props) => {
                 <SiLinkedin color="#222" size={50} />
                 Linkedin
               </a>
-              <a>
+              <a style={{ textAlign: "center" }}>
                 <CgWebsite color="#222" size={50} />
                 Raion Site
+                <br />
+                (in dev)
               </a>
             </div>
           </div>
         </div>
       </Raion>
+      <Bottom />
     </Container>
   );
 };
