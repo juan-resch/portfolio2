@@ -47,7 +47,7 @@ export default function Bottom() {
         </form>
       </div>
       <div className="content">
-        <span className="title">Social medias</span>
+        <span className="title">Social media</span>
         <span className="social">
           <a
             className="socialMediaWrapper"
